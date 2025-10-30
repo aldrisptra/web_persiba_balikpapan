@@ -6,6 +6,7 @@ const Tentang = () => import("../pages/About.vue");
 const Squad = () => import("../pages/Squad.vue");
 const Pertandingan = () => import("../pages/pertandingan.vue");
 const Merchandise = () => import("../pages/Merchandise.vue");
+const BeliTiket = () => import("../pages/BeliTiket.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,6 +16,11 @@ const router = createRouter({
     { path: "/squad", name: "squad", component: Squad },
     { path: "/pertandingan", name: "pertandingan", component: Pertandingan },
     { path: "/merchandise", name: "merchandise", component: Merchandise },
+    {
+      path: "/belitiket",
+      name: "belitiket",
+      component: () => import("../pages/BeliTiket.vue"),
+    },
   ],
   // biar tiap pindah halaman auto ke atas
   scrollBehavior() {
