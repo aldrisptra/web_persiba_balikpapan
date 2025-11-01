@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import logo from "../assets/logopersiba.png";
 
 const menuOpen = ref(false);
@@ -7,6 +7,13 @@ const menuOpen = ref(false);
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
+
+function onKeydown(e) {
+  if (e.key === "Escape") menuOpen.value = false;
+}
+
+onMounted(() => document.addEventListener("keydown", onKeydown));
+onUnmounted(() => document.removeEventListener("keydown", onKeydown));
 </script>
 
 <template>
@@ -129,43 +136,84 @@ function toggleMenu() {
         </button>
       </div>
 
-      <!-- Mobile menu (small screens) -->
+      <!-- Mobile sidebar (off-canvas) -->
+      <!-- Backdrop -->
       <div
-        v-show="menuOpen"
-        class="md:hidden absolute top-full left-0 w-full bg-[#0d355d] border-b z-50"
+        v-if="menuOpen"
+        @click="menuOpen = false"
+        class="fixed inset-0 bg-black/50 z-40 md:hidden"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Sidebar panel -->
+      <aside
+        :class="[
+          'fixed top-0 left-0 h-full w-64 bg-[#0d355d] z-50 transform transition-transform duration-300 md:hidden',
+          menuOpen ? 'translate-x-0' : '-translate-x-full',
+        ]"
+        aria-label="Mobile navigation"
       >
-        <div class="px-4 pt-4 pb-6 space-y-2">
+        <div
+          class="h-16 flex items-center px-4 justify-between border-b border-white/10"
+        >
+          <div class="flex items-center gap-2">
+            <img :src="logo" alt="Persiba" class="h-8 w-8 object-contain" />
+            <span class="font-bold text-white">Persiba</span>
+          </div>
+          <button
+            @click="menuOpen = false"
+            class="p-2 text-white hover:bg-white/10 rounded-md"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="px-4 py-6 space-y-3">
           <RouterLink
             @click="menuOpen = false"
             :to="{ name: 'home' }"
-            class="block py-2"
+            class="block text-white py-2"
             >Home</RouterLink
           >
           <RouterLink
             @click="menuOpen = false"
             :to="{ name: 'tentang' }"
-            class="block py-2"
+            class="block text-white py-2"
             >About</RouterLink
           >
           <RouterLink
             @click="menuOpen = false"
             :to="{ name: 'squad' }"
-            class="block py-2"
+            class="block text-white py-2"
             >Squad</RouterLink
           >
           <RouterLink
             @click="menuOpen = false"
             :to="{ name: 'pertandingan' }"
-            class="block py-2"
+            class="block text-white py-2"
             >Match</RouterLink
           >
           <RouterLink
             @click="menuOpen = false"
             :to="{ name: 'merchandise' }"
-            class="block py-2"
+            class="block text-white py-2"
             >Merchandise</RouterLink
           >
-          <div class="pt-2">
+
+          <div class="pt-4">
             <RouterLink
               @click="menuOpen = false"
               :to="{ name: 'belitiket' }"
@@ -173,8 +221,8 @@ function toggleMenu() {
               >Beli Tiket</RouterLink
             >
           </div>
-        </div>
-      </div>
+        </nav>
+      </aside>
     </div>
   </header>
 </template>

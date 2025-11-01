@@ -1,5 +1,6 @@
 <script setup>
 import bgimage from "../assets/stdbatakan.webp";
+import SocialFooter from "../components/SocialFooter.vue";
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import bgimage from "../assets/stdbatakan.webp";
         backgroundImage: `url(${bgimage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: 'calc(100vh - 4rem)'
+        height: 'calc(100vh - 4rem)',
       }"
     >
       <!-- overlay -->
@@ -21,26 +22,27 @@ import bgimage from "../assets/stdbatakan.webp";
       <div
         class="relative container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 h-full"
       >
-  <div class="flex-1 space-y-4 flex flex-col justify-center">
+        <div class="flex-1 space-y-4 flex flex-col justify-center">
           <p class="uppercase tracking-wide text-sm text-blue-100">
             Klub Resmi
           </p>
           <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-            Selamat Datang di Klub Store
+            Selamat Datang di Klub
+            <span class="text-blue-400">Persiba Balikpapan</span>
           </h1>
           <p class="text-blue-50 max-w-xl">
-            Jersey resmi, merchandise, dan tiket pertandingan klub favoritmu.
+            Tim Kebanggan Kota <span class="text-blue-400">Balikpapan</span>.
           </p>
           <div class="flex gap-3">
             <router-link
               :to="{ name: 'merchandise' }"
-              class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold"
+              class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-200"
             >
               Lihat Merchandise
             </router-link>
             <router-link
               :to="{ name: 'belitiket' }"
-              class="border border-white/60 px-4 py-2 rounded-lg"
+              class="border border-white/60 px-4 py-2 rounded-lg hover:bg-white/20 font-semibold"
             >
               Beli Tiket
             </router-link>
@@ -48,7 +50,9 @@ import bgimage from "../assets/stdbatakan.webp";
         </div>
 
         <div class="flex-1 flex items-center">
-          <div class="bg-white/10 rounded-2xl p-6 border border-white/20 w-full">
+          <div
+            class="bg-white/10 rounded-2xl p-6 border border-white/20 w-full"
+          >
             <p class="text-sm text-blue-50 mb-2">Pertandingan berikutnya</p>
             <h2 class="text-xl font-semibold">Klub A vs Klub B</h2>
             <p class="text-blue-100 text-sm">
@@ -152,5 +156,7 @@ import bgimage from "../assets/stdbatakan.webp";
         </div>
       </div>
     </section>
+    <!-- Footer -->
+    <SocialFooter />
   </div>
 </template>
