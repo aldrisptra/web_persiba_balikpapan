@@ -18,7 +18,9 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
 
 <template>
   <header class="bg-[#0d355d] border-b">
-    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+    <div
+      class="container mx-auto px-4 md:px-6 lg:px-12 h-16 flex items-center justify-between"
+    >
       <div class="flex items-center gap-2">
         <!-- Logo at left of site name. Replace the import in the <script setup> with your own file (e.g. src/assets/logo.png) to change the logo -->
         <img
@@ -76,7 +78,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
           :to="{ name: 'merchandise' }"
           class="relative inline-block py-2 group"
         >
-          werchandise
+          Merchandise
           <span
             class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >

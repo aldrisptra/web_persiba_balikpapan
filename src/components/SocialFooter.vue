@@ -1,14 +1,27 @@
+<script setup>
+import logo from "../assets/logopersiba.png";
+</script>
+
 <template>
   <footer class="bg-[#071A32] text-white">
-    <div class="container mx-auto px-4 py-10">
+    <div class="container mx-auto px-4 md:px-6 lg:px-12 py-10">
       <div
         class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6"
       >
-        <div class="text-center md:text-left">
-          <h3 class="text-xl font-bold">Persiba Balikpapan</h3>
-          <p class="text-sm text-white/80">
-            Ikuti kami di media sosial untuk update terbaru
-          </p>
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-3 text-center md:text-left"
+        >
+          <img
+            :src="logo"
+            alt="Persiba logo"
+            class="h-12 w-12 object-contain"
+          />
+          <div>
+            <h3 class="text-xl font-bold">Persiba Balikpapan</h3>
+            <p class="text-sm text-white/80">
+              Ikuti kami di media sosial untuk update terbaru
+            </p>
+          </div>
         </div>
 
         <div class="flex items-center gap-4">
@@ -91,7 +104,7 @@
       </div>
 
       <div class="mt-8 text-center text-sm text-white/70">
-        &copy; 2025 Persiba Balikpapan. All rights reserved.
+        &copy; 2025 PERSIBA BALIKPAPAN.
       </div>
     </div>
   </footer>
