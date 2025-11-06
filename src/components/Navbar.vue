@@ -38,7 +38,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
         >
           Home
           <span
-            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >
           </span>
         </RouterLink>
@@ -49,7 +49,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
         >
           About
           <span
-            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >
           </span>
         </RouterLink>
@@ -60,7 +60,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
         >
           Squad
           <span
-            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >
           </span>
         </RouterLink>
@@ -70,7 +70,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
         >
           Match
           <span
-            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >
           </span>
         </RouterLink>
@@ -80,7 +80,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
         >
           Merchandise
           <span
-            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-blue-600 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+            class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
           >
           </span>
         </RouterLink>

@@ -1,9 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "./index.css"; // tailwind
+import "./style.css"; // tailwind
 import { HiTicket } from "oh-vue-icons/icons";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
+import "remixicon/fonts/remixicon.css";
 
 addIcons(HiTicket);
 

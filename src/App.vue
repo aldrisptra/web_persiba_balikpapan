@@ -2,6 +2,10 @@
 import NavBar from "./components/Navbar.vue";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+import "animate.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const route = useRoute();
 // treat these routes as full-bleed pages (no outer container)

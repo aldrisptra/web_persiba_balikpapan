@@ -1,6 +1,8 @@
 <script setup>
 import bgimage from "../assets/stdbatakan.webp";
+import logo from "../assets/logopersiba.png";
 import SocialFooter from "../components/SocialFooter.vue";
+import TextType from "../components/TextType.vue";
 
 import videoThumb1 from "../assets/video1.jpg";
 import videoThumb2 from "../assets/video2.jpg";
@@ -81,12 +83,24 @@ const thumbs = [news1, news2, news3];
         class="relative container mx-auto px-4 md:px-6 lg:px-12 flex flex-col md:flex-row items-center justify-center gap-8 h-full text-center"
       >
         <div class="space-y-4 flex flex-col justify-center items-center">
-          <p class="uppercase tracking-wide text-sm text-blue-100">
-            Klub Resmi
-          </p>
+          <img
+            :src="logo"
+            alt="Persiba logo"
+            class="h-20 w-20 object-contain"
+          />
           <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-            Selamat Datang di Klub
-            <span class="text-blue-400">Persiba Balikpapan</span>
+            <TextType
+              :text="[
+                'Selamat Datang di Klub Persiba Balikpapan',
+                'Selamat Datang di Klub Persiba Balikpapan',
+              ]"
+              :typingSpeed="75"
+              :pauseDuration="1500"
+              :showCursor="true"
+              cursorCharacter="|"
+              highlight="Persiba Balikpapan"
+              highlightClass="text-blue-400"
+            />
           </h1>
           <p class="text-blue-50 max-w-xl">
             Tim Kebanggan Kota <span class="text-blue-400">Balikpapan</span>.
