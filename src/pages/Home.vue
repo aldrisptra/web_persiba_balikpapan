@@ -103,13 +103,14 @@ const thumbs = [news1, news2, news3];
             />
           </h1>
           <p class="text-blue-50 max-w-xl">
-            Tim Kebanggan Kota <span class="text-blue-400">Balikpapan</span>.
+            Website Resmi <span class="text-blue-400">Persiba Balikpapan</span>.
           </p>
           <div class="flex gap-3">
             <router-link
               :to="{ name: 'belitiket' }"
               class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-200"
             >
+              <v-icon name="hi-ticket" class="h-5 w-5 text-black" />
               Beli Tiket
             </router-link>
             <router-link
@@ -137,7 +138,7 @@ const thumbs = [news1, news2, news3];
             :href="v.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="block bg-white rounded-xl overflow-hidden hover:shadow-lg transition"
+            class="block bg-white rounded-xl overflow-hidden transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
           >
             <div class="relative">
               <img
@@ -164,6 +165,7 @@ const thumbs = [news1, news2, news3];
                 {{ v.title }}
               </h3>
               <p class="text-xs text-gray-400">{{ v.date }}</p>
+              <span class="text-blue-600 text-sm">Tonton selengkapnya →</span>
             </div>
           </a>
         </div>
@@ -184,7 +186,7 @@ const thumbs = [news1, news2, news3];
             :href="item.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="block bg-white rounded-xl border overflow-hidden hover:shadow-lg transition"
+            class="block bg-white rounded-xl border overflow-hidden transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
           >
             <img
               :src="thumbs[i]"

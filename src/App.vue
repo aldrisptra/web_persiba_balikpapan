@@ -9,7 +9,7 @@ AOS.init();
 
 const route = useRoute();
 // treat these routes as full-bleed pages (no outer container)
-const fullBleedRoutes = ["home", "tentang"];
+const fullBleedRoutes = ["home", "tentang", "squad"];
 const mainClass = computed(() =>
   fullBleedRoutes.includes(route.name) ? "p-0" : "container mx-auto px-4 py-6"
 );

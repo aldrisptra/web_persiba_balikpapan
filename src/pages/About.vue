@@ -32,18 +32,7 @@ import TextType from "../components/TextType.vue";
           />
           <div>
             <h1 class="text-3xl md:text-4xl font-extrabold">
-              <TextType
-                :text="[
-                  'Tentang Persiba Balikpapan',
-                  'Tentang Persiba Balikpapan',
-                ]"
-                :typingSpeed="75"
-                :pauseDuration="1500"
-                :showCursor="true"
-                cursorCharacter="|"
-                highlight="Persiba Balikpapan"
-                highlightClass="text-blue-400 font-semibold"
-              />
+              Tentang <span class="text-blue-400">Persiba Balikpapan</span>
             </h1>
             <p class="mt-2 text-white/90">
               Tim kebanggaan
@@ -76,18 +65,21 @@ import TextType from "../components/TextType.vue";
                   Sejarah Singkat
                 </h3>
                 <p class="text-sm text-gray-700 leading-relaxed">
-                  Persiba Balikpapan adalah klub sepak bola profesional asal
-                  Kota Balikpapan, Kalimantan Timur, yang berdiri sejak 1950.
-                  Dikenal dengan julukan "Beruang Madu", Persiba menjadi salah
-                  satu klub bersejarah dalam sepak bola Indonesia. Dengan warna
-                  kebesaran biru, Persiba hadir sebagai simbol semangat,
-                  sportivitas, dan kebanggaan masyarakat Kota Minyak. Perjalanan
-                  panjang di berbagai era kompetisi nasional menjadikan Persiba
-                  bagian penting dari identitas sepak bola Indonesia. Prestasi
-                  dan dedikasi Persiba telah mengukir namanya dalam sejarah
-                  sepak bola nasional. Tim yang bermarkas di Stadion Balikpapan
-                  ini terus berupaya memberikan yang terbaik untuk membanggakan
-                  para pendukung setia di seluruh Kalimantan Timur.
+                  <strong>Persiba Balikpapan</strong> adalah klub sepak bola
+                  profesional asal
+                  <strong>Kota Balikpapa, Kalimantan Timurn</strong>, yang
+                  berdiri sejak <strong>1950</strong>. Dikenal dengan julukan
+                  <strong>"Beruang Madu"</strong>, Persiba menjadi salah satu
+                  klub bersejarah dalam sepak bola Indonesia. Dengan warna
+                  kebesaran <strong>biru</strong>, Persiba hadir sebagai simbol
+                  semangat, sportivitas, dan kebanggaan masyarakat
+                  <strong>Kota Minyak</strong>. Perjalanan panjang di berbagai
+                  era kompetisi nasional menjadikan Persiba bagian penting dari
+                  identitas sepak bola Indonesia. Prestasi dan dedikasi Persiba
+                  telah mengukir namanya dalam sejarah sepak bola nasional. Tim
+                  yang bermarkas di Stadion Batakan ini terus berupaya
+                  memberikan yang terbaik untuk membanggakan para pendukung
+                  setia di seluruh Kalimantan Timur tepatnya di Balikpapan.
                 </p>
               </div>
             </div>
@@ -116,7 +108,6 @@ import TextType from "../components/TextType.vue";
                   Stadion Batakan
                 </h3>
                 <p class="text-sm text-gray-700 leading-relaxed">
-                  Ini versi yang lebih rapi dan mengalir:
                   <strong>Stadion Batakan</strong> berlokasi di Kelurahan
                   Manggar, Kecamatan Balikpapan Timur, Kota Balikpapan,
                   Kalimantan Timur, Indonesia. Stadion ini merupakan kandang
