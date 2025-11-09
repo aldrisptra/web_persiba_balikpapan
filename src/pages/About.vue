@@ -4,7 +4,6 @@ import header from "../assets/stdbatakan.webp";
 import grid1 from "../assets/foto3.jpg";
 import grid2 from "../assets/stdbtkn.jpg";
 import SocialFooter from "../components/SocialFooter.vue";
-import TextType from "../components/TextType.vue";
 </script>
 
 <template>
@@ -19,7 +18,7 @@ import TextType from "../components/TextType.vue";
         height: 'calc(100vh - 4rem)',
       }"
     >
-      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-black/60"></div>
 
       <div class="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div

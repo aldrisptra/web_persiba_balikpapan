@@ -76,7 +76,7 @@ const thumbs = [news1, news2, news3];
       }"
     >
       <!-- overlay -->
-      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-black/60"></div>
 
       <!-- konten -->
       <div

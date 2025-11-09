@@ -3,7 +3,8 @@ import logo from "../assets/logopersiba.png";
 import header from "../assets/stdbatakan.webp";
 import { ref, computed } from "vue";
 import SocialFooter from "../components/SocialFooter.vue";
-import TextType from "../components/TextType.vue";
+
+import pemain1 from "../assets/players/pemain1.png";
 
 const filterPosition = ref("Semua");
 const positions = ["Semua", "Kiper", "Bek", "Gelandang", "Penyerang"];
@@ -11,12 +12,12 @@ const positions = ["Semua", "Kiper", "Bek", "Gelandang", "Penyerang"];
 const players = ref([
   {
     id: 1,
-    name: "Pemain 1",
+    name: "Pemain1",
     number: 1,
     position: "Kiper",
     age: 28,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 2,
@@ -25,7 +26,7 @@ const players = ref([
     position: "Bek",
     age: 25,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 3,
@@ -34,7 +35,7 @@ const players = ref([
     position: "Bek",
     age: 27,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 4,
@@ -43,7 +44,7 @@ const players = ref([
     position: "Bek",
     age: 26,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 5,
@@ -52,7 +53,7 @@ const players = ref([
     position: "Bek",
     age: 24,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 6,
@@ -61,7 +62,7 @@ const players = ref([
     position: "Gelandang",
     age: 23,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 7,
@@ -70,7 +71,7 @@ const players = ref([
     position: "Gelandang",
     age: 25,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 8,
@@ -79,7 +80,7 @@ const players = ref([
     position: "Gelandang",
     age: 24,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 9,
@@ -88,7 +89,7 @@ const players = ref([
     position: "Penyerang",
     age: 26,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 10,
@@ -97,7 +98,7 @@ const players = ref([
     position: "Penyerang",
     age: 27,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 11,
@@ -106,7 +107,7 @@ const players = ref([
     position: "Penyerang",
     age: 25,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
   {
     id: 12,
@@ -115,7 +116,7 @@ const players = ref([
     position: "Kiper",
     age: 30,
     nationality: "🇮🇩 Indonesia",
-    image: null,
+    image: pemain1,
   },
 ]);
 
@@ -138,7 +139,7 @@ const filteredPlayers = computed(() =>
         height: 'calc(100vh - 4rem)',
       }"
     >
-      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-black/60"></div>
 
       <div class="relative container mx-auto px-4 md:px-6 lg:px-12">
         <div
@@ -161,7 +162,7 @@ const filteredPlayers = computed(() =>
     </section>
 
     <!-- MAIN: full-bleed background, konten terpusat -->
-    <main class="bg-gradient-to-b from-blue-900 to-blue-950 py-12">
+    <main class="bg-[#0d355d] py-12">
       <section class="w-full">
         <div class="container mx-auto px-4 md:px-6 lg:px-12">
           <!-- FILTER -->
@@ -171,11 +172,11 @@ const filteredPlayers = computed(() =>
               :key="position"
               @click="filterPosition = position"
               :aria-pressed="filterPosition === position"
-              class="px-6 py-2 rounded-full font-semibold transition-all duration-300"
+              class="relative px-6 py-2 rounded-full font-semibold transition-all duration-300 group transform hover:scale-110 hover:shadow-xl"
               :class="
                 filterPosition === position
                   ? 'bg-yellow-400 text-blue-900'
-                  : 'bg-blue-800 text-white hover:bg-blue-700'
+                  : 'bg-white text-black'
               "
             >
               {{ position }}
@@ -193,13 +194,13 @@ const filteredPlayers = computed(() =>
             >
               <!-- FOTO / PLACEHOLDER -->
               <div
-                class="relative bg-gradient-to-br from-blue-600 to-blue-800 h-64 flex items-center justify-center"
+                class="relative bg-gradient-to-br from-blue-950 to-blue-800 h-64 flex items-center justify-center"
               >
                 <img
                   v-if="player.image"
                   :src="player.image"
                   :alt="`Foto ${player.name}`"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-contain"
                   loading="lazy"
                 />
                 <div v-else class="text-white">
