@@ -13,6 +13,7 @@ const fullBleedRoutes = [
   "home",
   "tentang",
   "squad",
+  "pertandingan",
   "merchandise",
   "belitiket",
 ];

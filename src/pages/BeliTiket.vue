@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import bgimage from "../assets/stdbatakan.webp";
 import SocialFooter from "../components/SocialFooter.vue";
 import TextType from "../components/TextType.vue";
 
+const route = useRoute();
 const selectedMatch = ref(null);
 const selectedCategory = ref(null);
 const quantity = ref(1);
@@ -16,46 +18,69 @@ const formData = ref({
 
 const matches = [
   {
-    id: 1,
+    id: 9,
     opponent: "Persiku Kudus",
     date: "15 November 2025",
     time: "18:30",
     location: "Stadion Batakan, Balikpapan",
     persibaFirst: true, // Persiba Balikpapan vs Persiku Kudus
     categories: [
-      { name: "Selatan", price: 50000 },
-      { name: "Utara", price: 50000 },
-      { name: "Timur", price: 85000 },
-      { name: "Barat", price: 100000 },
+      { name: "Selatan", price: 50000, available: 500 },
+      { name: "Utara", price: 50000, available: 500 },
+      { name: "Timur", price: 85000, available: 250 },
+      { name: "Barat", price: 100000, available: 200 },
     ],
   },
   {
-    id: 2,
+    id: 10,
     opponent: "PSIS Semarang",
     date: "22 November 2025",
     time: "19:00",
-    location: "Stadion Jatidiri, Semarang",
+    location: "Stadion Batakan, Balikpapan",
     persibaFirst: false, // PSIS Semarang vs Persiba Balikpapan
     categories: [
-      { name: "Regular", price: 50000, available: 500 },
-      { name: "VIP", price: 100000, available: 250 },
-      { name: "VVIP", price: 200000, available: 80 },
+      { name: "Selatan", price: 50000, available: 500 },
+      { name: "Utara", price: 50000, available: 500 },
+      { name: "Timur", price: 85000, available: 250 },
+      { name: "Barat", price: 100000, available: 200 },
     ],
   },
   {
-    id: 3,
+    id: 11,
     opponent: "Barito Putera",
     date: "29 November 2025",
     time: "15:30",
-    location: "Stadion Demang Lehman, Banjarbaru",
+    location: "Stadion Batakan, Balikpapan",
     persibaFirst: false, // Barito Putera vs Persiba Balikpapan
     categories: [
-      { name: "Regular", price: 50000, available: 600 },
-      { name: "VIP", price: 100000, available: 300 },
-      { name: "VVIP", price: 200000, available: 120 },
+      { name: "Selatan", price: 50000, available: 600 },
+      { name: "Utara", price: 50000, available: 600 },
+      { name: "Timur", price: 85000, available: 300 },
+      { name: "Barat", price: 100000, available: 250 },
     ],
   },
 ];
+
+// Auto-select match jika ada matchId di query parameter
+onMounted(() => {
+  const matchId = route.query.matchId;
+  if (matchId) {
+    const match = matches.find((m) => m.id === parseInt(matchId));
+    if (match) {
+      selectMatch(match);
+      // Scroll ke section pemilihan kategori
+      setTimeout(() => {
+        const categorySection = document.querySelector("#category-section");
+        if (categorySection) {
+          categorySection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+    }
+  }
+});
 
 const selectMatch = (match) => {
   selectedMatch.value = match;
@@ -198,7 +223,11 @@ const formatPrice = (price) => {
         </div>
 
         <!-- TICKET CATEGORY & ORDER FORM -->
-        <div v-if="selectedMatch" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div
+          v-if="selectedMatch"
+          id="category-section"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        >
           <!-- LEFT: CATEGORIES -->
           <div>
             <h2 class="text-2xl font-bold text-white mb-6">Kategori Tiket</h2>
