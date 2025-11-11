@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import bgimage from "../assets/stdbatakan.webp";
 import SocialFooter from "../components/SocialFooter.vue";
+import TextType from "../components/TextType.vue";
 
 const selectedMatch = ref(null);
 const selectedCategory = ref(null);
@@ -20,10 +21,12 @@ const matches = [
     date: "15 November 2025",
     time: "18:30",
     location: "Stadion Batakan, Balikpapan",
+    persibaFirst: true, // Persiba Balikpapan vs Persiku Kudus
     categories: [
-      { name: "Regular", price: 50000, available: 500 },
-      { name: "VIP", price: 100000, available: 250 },
-      { name: "VVIP", price: 200000, available: 100 },
+      { name: "Selatan", price: 50000 },
+      { name: "Utara", price: 50000 },
+      { name: "Timur", price: 85000 },
+      { name: "Barat", price: 100000 },
     ],
   },
   {
@@ -31,7 +34,8 @@ const matches = [
     opponent: "PSIS Semarang",
     date: "22 November 2025",
     time: "19:00",
-    location: "Stadion Batakan, Balikpapan",
+    location: "Stadion Jatidiri, Semarang",
+    persibaFirst: false, // PSIS Semarang vs Persiba Balikpapan
     categories: [
       { name: "Regular", price: 50000, available: 500 },
       { name: "VIP", price: 100000, available: 250 },
@@ -43,7 +47,8 @@ const matches = [
     opponent: "Barito Putera",
     date: "29 November 2025",
     time: "15:30",
-    location: "Stadion Batakan, Balikpapan",
+    location: "Stadion Demang Lehman, Banjarbaru",
+    persibaFirst: false, // Barito Putera vs Persiba Balikpapan
     categories: [
       { name: "Regular", price: 50000, available: 600 },
       { name: "VIP", price: 100000, available: 300 },
@@ -127,8 +132,18 @@ const formatPrice = (price) => {
           Beli <span class="text-yellow-400">Tiket</span> Pertandingan
         </h1>
         <p class="mt-2 text-white/90">
-          Dukung <span class="text-blue-400">Persiba Balikpapan</span> dengan
-          hadir langsung di Stadion Batakan
+          <TextType
+            :text="[
+              'Dukung Persiba Balikpapan dengan hadir langsung di Stadion',
+              'Dukung Persiba Balikpapan dengan hadir langsung di Stadion',
+            ]"
+            :typingSpeed="75"
+            :pauseDuration="1500"
+            :showCursor="true"
+            cursorCharacter="|"
+            highlight="Persiba Balikpapan"
+            highlightClass="text-blue-400"
+          />
         </p>
       </div>
     </section>
@@ -152,16 +167,31 @@ const formatPrice = (price) => {
               ]"
             >
               <div class="flex items-center mb-4">
-                <div class="text-4xl mr-4">⚽</div>
-                <div>
-                  <p class="text-sm opacity-75">vs</p>
+                <div class="text-4xl mr-4"></div>
+                <div v-if="match.persibaFirst">
+                  <p class="font-bold text-lg">Persiba Balikpapan</p>
+                  <p class="text-sm text-center opacity-75">vs</p>
                   <p class="font-bold text-lg">{{ match.opponent }}</p>
+                </div>
+                <div v-else>
+                  <p class="font-bold text-lg">{{ match.opponent }}</p>
+                  <p class="text-sm text-center opacity-75">vs</p>
+                  <p class="font-bold text-lg">Persiba Balikpapan</p>
                 </div>
               </div>
               <div class="space-y-2 text-sm">
-                <p><strong>📅</strong> {{ match.date }}</p>
-                <p><strong>⏰</strong> {{ match.time }}</p>
-                <p><strong>📍</strong> {{ match.location }}</p>
+                <p>
+                  <i class="ri-calendar-2-fill px-1 text-blue-600"></i>
+                  {{ match.date }}
+                </p>
+                <p>
+                  <i class="ri-time-fill px-1 text-blue-600"></i>
+                  {{ match.time }}
+                </p>
+                <p>
+                  <i class="ri-map-pin-fill px-1 text-blue-600"></i>
+                  {{ match.location }}
+                </p>
               </div>
             </div>
           </div>
@@ -193,7 +223,7 @@ const formatPrice = (price) => {
                   >
                 </div>
                 <div class="flex justify-between text-sm text-gray-600">
-                  <span>Tersedia: {{ category.available }} tiket</span>
+                  <span>Tersedia</span>
                   <span
                     v-if="selectedCategory?.name === category.name"
                     class="text-blue-950 font-semibold"
@@ -364,8 +394,8 @@ const formatPrice = (price) => {
               Kategori Tiket
             </h3>
             <p class="text-gray-600">
-              Regular, VIP, dan VVIP dengan harga yang kompetitif sesuai posisi
-              tempat duduk.
+              Timur, Barat, Selatan, dan Utara dengan harga yang kompetitif
+              sesuai posisi tempat duduk.
             </p>
           </div>
           <!-- kedua -->

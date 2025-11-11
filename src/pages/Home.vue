@@ -4,13 +4,13 @@ import logo from "../assets/logopersiba.png";
 import SocialFooter from "../components/SocialFooter.vue";
 import TextType from "../components/TextType.vue";
 
-import videoThumb1 from "../assets/video1.jpg";
-import videoThumb2 from "../assets/video2.jpg";
-import videoThumb3 from "../assets/video3.jpg";
+import videoThumb1 from "../assets/thumbnail/video1.jpg";
+import videoThumb2 from "../assets/thumbnail/video2.jpg";
+import videoThumb3 from "../assets/thumbnail/video3.jpg";
 
-import news1 from "../assets/batakan.jpg";
-import news2 from "../assets/grid2.jpg";
-import news3 from "../assets/grid3.webp";
+import news1 from "../assets/thumbnail/batakan.jpg";
+import news2 from "../assets/thumbnail/grid2.jpg";
+import news3 from "../assets/thumbnail/grid3.webp";
 
 const videos = [
   {
