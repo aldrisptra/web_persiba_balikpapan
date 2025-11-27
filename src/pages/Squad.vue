@@ -4,7 +4,7 @@ import header from "../assets/stdbatakan.webp";
 import { ref, computed } from "vue";
 import SocialFooter from "../components/SocialFooter.vue";
 
-import pemain1 from "../assets/players/pemain1.png";
+import pemain1 from "../assets/players/Pemain1.png";
 
 const filterPosition = ref("Semua");
 const positions = ["Semua", "Kiper", "Bek", "Gelandang", "Penyerang"];
