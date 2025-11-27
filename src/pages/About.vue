@@ -66,7 +66,7 @@ import SocialFooter from "../components/SocialFooter.vue";
                 <p class="text-sm text-gray-700 leading-relaxed">
                   <strong>Persiba Balikpapan</strong> adalah klub sepak bola
                   profesional asal
-                  <strong>Kota Balikpapa, Kalimantan Timurn</strong>, yang
+                  <strong>Kota Balikpapan, Kalimantan Timur</strong>, yang
                   berdiri sejak <strong>1950</strong>. Dikenal dengan julukan
                   <strong>"Beruang Madu"</strong>, Persiba menjadi salah satu
                   klub bersejarah dalam sepak bola Indonesia. Dengan warna
