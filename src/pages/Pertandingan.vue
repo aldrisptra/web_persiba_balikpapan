@@ -114,7 +114,7 @@ const matches = ref([
     persibaFirst: false,
     ticketAvailable: false,
   },
-  // Pertandingan mendatang (3 terdekat dengan tiket tersedia)
+
   {
     id: 9,
     opponent: "Persiku Kudus",
