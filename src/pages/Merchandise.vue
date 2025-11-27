@@ -4,14 +4,14 @@ import SocialFooter from "../components/SocialFooter.vue";
 import logo from "../assets/logopersiba.png";
 import header from "../assets/stdbatakan.webp";
 
-import Merchandise1 from "../assets/merchandise/Merchandise1.png";
-import Merchandise2 from "../assets/merchandise/Merchandise2.png";
-import Merchandise3 from "../assets/merchandise/Merchandise3.png";
-import Merchandise4 from "../assets/merchandise/Merchandise4.png";
-import Merchandise5 from "../assets/merchandise/Merchandise5.png";
-import Merchandise6 from "../assets/merchandise/Merchandise6.png";
-import Merchandise7 from "../assets/merchandise/Merchandise7.png";
-import Merchandise8 from "../assets/merchandise/Merchandise8.png";
+import Merchandise1 from "../assets/Merchandise/Merchandise1.png";
+import Merchandise2 from "../assets/Merchandise/Merchandise2.png";
+import Merchandise3 from "../assets/Merchandise/Merchandise3.png";
+import Merchandise4 from "../assets/Merchandise/Merchandise4.png";
+import Merchandise5 from "../assets/Merchandise/Merchandise5.png";
+import Merchandise6 from "../assets/Merchandise/Merchandise6.png";
+import Merchandise7 from "../assets/Merchandise/Merchandise7.png";
+import Merchandise8 from "../assets/Merchandise/Merchandise8.png";
 
 const filterCategory = ref("Semua");
 const categories = ["Semua", "Jersey", "Aksesoris", "Koleksi", "Lainnya"];
