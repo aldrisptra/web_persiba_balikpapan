@@ -16,6 +16,10 @@ import Merchandise8 from "../assets/Merchandise/Merchandise8.png";
 const filterCategory = ref("Semua");
 const categories = ["Semua", "Jersey", "Aksesoris", "Koleksi", "Lainnya"];
 
+// State untuk keranjang
+const cart = ref([]);
+const showCart = ref(false);
+
 // Data merchandise (contoh - ganti dengan data asli)
 const products = ref([
   {
@@ -99,6 +103,19 @@ const filteredProducts = computed(() =>
     : products.value.filter((p) => p.category === filterCategory.value)
 );
 
+// Hitung total item di keranjang
+const cartItemCount = computed(() => {
+  return cart.value.reduce((total, item) => total + item.quantity, 0);
+});
+
+// Hitung total harga keranjang
+const cartTotal = computed(() => {
+  return cart.value.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+});
+
 // Format harga ke Rupiah
 const formatPrice = (price) => {
   return new Intl.NumberFormat("id-ID", {
@@ -158,12 +175,80 @@ const handleCheckout = () => {
     alert("Pilih ukuran terlebih dahulu!");
     return;
   }
-  alert(
-    `Checkout:\nProduk: ${selectedProduct.value.name}\nUkuran: ${
-      selectedSize.value
-    }\nJumlah: ${quantity.value}\nTotal: ${formatPrice(totalPrice.value)}`
-  );
+
+  // Tambahkan ke keranjang
+  addToCart(selectedProduct.value, selectedSize.value, quantity.value);
   closeModal();
+};
+
+// Fungsi untuk menambahkan item ke keranjang
+const addToCart = (product, size, qty) => {
+  const existingItem = cart.value.find(
+    (item) => item.id === product.id && item.size === size
+  );
+
+  if (existingItem) {
+    existingItem.quantity += qty;
+  } else {
+    cart.value.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      size: size,
+      quantity: qty,
+    });
+  }
+
+  alert(`${product.name} (Ukuran ${size}) berhasil ditambahkan ke keranjang!`);
+};
+
+// Fungsi untuk menghapus item dari keranjang
+const removeFromCart = (index) => {
+  cart.value.splice(index, 1);
+};
+
+// Fungsi untuk update quantity di keranjang
+const updateCartQuantity = (index, change) => {
+  const newQty = cart.value[index].quantity + change;
+  if (newQty > 0) {
+    cart.value[index].quantity = newQty;
+  } else {
+    removeFromCart(index);
+  }
+};
+
+// Toggle keranjang
+const toggleCart = () => {
+  showCart.value = !showCart.value;
+  if (showCart.value) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+};
+
+// Checkout dari keranjang
+const checkoutCart = () => {
+  if (cart.value.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
+
+  const summary = cart.value
+    .map(
+      (item) =>
+        `${item.name} (${item.size}) x${item.quantity} = ${formatPrice(
+          item.price * item.quantity
+        )}`
+    )
+    .join("\n");
+
+  alert(`Checkout:\n\n${summary}\n\nTotal: ${formatPrice(cartTotal.value)}`);
+
+  // Reset keranjang setelah checkout
+  cart.value = [];
+  toggleCart();
 };
 </script>
 
@@ -202,6 +287,198 @@ const handleCheckout = () => {
         </div>
       </div>
     </section>
+
+    <!-- FLOATING CART BUTTON -->
+    <button
+      @click="toggleCart"
+      class="fixed bottom-6 right-6 z-40 bg-yellow-400 hover:bg-yellow-500 text-blue-950 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+      <span
+        v-if="cartItemCount > 0"
+        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center"
+      >
+        {{ cartItemCount }}
+      </span>
+    </button>
+
+    <!-- CART SIDEBAR -->
+    <Transition name="slide">
+      <div
+        v-if="showCart"
+        class="fixed inset-0 z-50 flex justify-end bg-black/50"
+        @click.self="toggleCart"
+      >
+        <div
+          class="bg-white w-full max-w-md h-full overflow-y-auto shadow-2xl"
+          @click.stop
+        >
+          <!-- Header Keranjang -->
+          <div class="sticky top-0 bg-blue-950 text-white p-6 z-10">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-2xl font-bold">Keranjang Belanja</h2>
+                <p class="text-sm text-blue-200">{{ cartItemCount }} item</p>
+              </div>
+              <button
+                @click="toggleCart"
+                class="hover:bg-blue-900 p-2 rounded-lg transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cart Items -->
+          <div class="p-6 space-y-4">
+            <div v-if="cart.length === 0" class="text-center py-12">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-24 w-24 mx-auto text-gray-300 mb-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <p class="text-gray-500 text-lg">Keranjang masih kosong</p>
+            </div>
+
+            <div
+              v-for="(item, index) in cart"
+              :key="index"
+              class="flex gap-4 bg-gray-50 rounded-lg p-4"
+            >
+              <img
+                :src="item.image"
+                :alt="item.name"
+                class="w-20 h-20 object-cover rounded"
+              />
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900">{{ item.name }}</h3>
+                <p class="text-sm text-gray-600">Ukuran: {{ item.size }}</p>
+                <p class="text-sm font-bold text-blue-950 mt-1">
+                  {{ formatPrice(item.price) }}
+                </p>
+
+                <div class="flex items-center gap-2 mt-2">
+                  <button
+                    @click="updateCartQuantity(index, -1)"
+                    class="bg-gray-300 hover:bg-gray-300 p-1 rounded"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 12H4"
+                      />
+                    </svg>
+                  </button>
+                  <span class="font-semibold w-8 text-center text-blue-950">{{
+                    item.quantity
+                  }}</span>
+                  <button
+                    @click="updateCartQuantity(index, 1)"
+                    class="bg-gray-300 hover:bg-gray-300 p-1 rounded"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    @click="removeFromCart(index)"
+                    class="ml-auto text-red-500 hover:text-red-700"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer dengan Total dan Checkout -->
+          <div
+            v-if="cart.length > 0"
+            class="sticky bottom-0 bg-white border-t p-6 space-y-4"
+          >
+            <div class="flex justify-between items-center text-lg">
+              <span class="font-semibold">Total:</span>
+              <span class="font-bold text-2xl text-blue-950">
+                {{ formatPrice(cartTotal) }}
+              </span>
+            </div>
+            <button
+              @click="checkoutCart"
+              class="w-full bg-yellow-400 hover:bg-yellow-500 text-blue-950 font-bold py-4 rounded-lg transition-all duration-300"
+            >
+              Checkout Sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
 
     <!-- MAIN CONTENT -->
     <main class="bg-[#0d355d] py-12">
@@ -446,7 +723,7 @@ const handleCheckout = () => {
                 />
                 <button
                   @click="incrementQuantity"
-                  class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold transition-colors flex items-center justify-center"
+                  class="w-10 h-10 rounded-full bg-gray-300 hover:bg-gray-300 text-gray-700 font-bold transition-colors flex items-center justify-center"
                 >
                   +
                 </button>
@@ -484,7 +761,7 @@ const handleCheckout = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              Checkout Sekarang
+              Tambah ke Keranjang
             </button>
           </div>
         </div>
@@ -515,5 +792,26 @@ const handleCheckout = () => {
 .modal-enter-from .bg-white,
 .modal-leave-to .bg-white {
   transform: scale(0.9);
+}
+
+/* Animasi Slide untuk Cart Sidebar */
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active > div,
+.slide-leave-active > div {
+  transition: transform 0.3s ease;
+}
+
+.slide-enter-from > div,
+.slide-leave-to > div {
+  transform: translateX(100%);
 }
 </style>
