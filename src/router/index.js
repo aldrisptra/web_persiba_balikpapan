@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const Home = () => import("../pages/Home.vue");
 const Tentang = () => import("../pages/About.vue");
 const Squad = () => import("../pages/Squad.vue");
-const Pertandingan = () => import("../pages/pertandingan.vue");
+const Pertandingan = () => import("../pages/Pertandingan.vue");
 const Merchandise = () => import("../pages/Merchandise.vue");
 const BeliTiket = () => import("../pages/BeliTiket.vue");
 
