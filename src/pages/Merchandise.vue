@@ -20,6 +20,15 @@ const categories = ["Semua", "Jersey", "Aksesoris", "Koleksi", "Lainnya"];
 const cart = ref([]);
 const showCart = ref(false);
 
+// State untuk form checkout
+const showCheckoutForm = ref(false);
+const customerData = ref({
+  nama: "",
+  email: "",
+  noTelepon: "",
+  alamat: "",
+});
+
 // Data merchandise (contoh - ganti dengan data asli)
 const products = ref([
   {
@@ -235,6 +244,32 @@ const checkoutCart = () => {
     return;
   }
 
+  // Tampilkan form checkout
+  showCheckoutForm.value = true;
+  showCart.value = false;
+  document.body.style.overflow = "hidden";
+};
+
+// Submit checkout dengan data customer
+const submitCheckout = () => {
+  // Validasi form
+  if (
+    !customerData.value.nama ||
+    !customerData.value.email ||
+    !customerData.value.noTelepon ||
+    !customerData.value.alamat
+  ) {
+    alert("Mohon lengkapi semua data!");
+    return;
+  }
+
+  // Validasi email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(customerData.value.email)) {
+    alert("Format email tidak valid!");
+    return;
+  }
+
   const summary = cart.value
     .map(
       (item) =>
@@ -244,11 +279,32 @@ const checkoutCart = () => {
     )
     .join("\n");
 
-  alert(`Checkout:\n\n${summary}\n\nTotal: ${formatPrice(cartTotal.value)}`);
+  alert(
+    `Checkout Berhasil!\n\n` +
+      `Nama: ${customerData.value.nama}\n` +
+      `Email: ${customerData.value.email}\n` +
+      `No. Telepon: ${customerData.value.noTelepon}\n` +
+      `Alamat: ${customerData.value.alamat}\n\n` +
+      `Pesanan:\n${summary}\n\n` +
+      `Total: ${formatPrice(cartTotal.value)}\n\n` +
+      `Konfirmasi akan dikirim ke email Anda.`
+  );
 
-  // Reset keranjang setelah checkout
+  // Reset keranjang dan form
   cart.value = [];
-  toggleCart();
+  customerData.value = {
+    nama: "",
+    email: "",
+    noTelepon: "",
+    alamat: "",
+  };
+  closeCheckoutForm();
+};
+
+// Close checkout form
+const closeCheckoutForm = () => {
+  showCheckoutForm.value = false;
+  document.body.style.overflow = "auto";
 };
 </script>
 
@@ -480,6 +536,151 @@ const checkoutCart = () => {
       </div>
     </Transition>
 
+    <!-- MODAL FORM CHECKOUT -->
+    <Transition name="modal">
+      <div
+        v-if="showCheckoutForm"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+        @click.self="closeCheckoutForm"
+      >
+        <div
+          class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          @click.stop
+        >
+          <!-- Header -->
+          <div
+            class="sticky top-0 bg-blue-950 text-white p-6 rounded-t-xl z-10"
+          >
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-bold">Data Pembeli</h2>
+              <button
+                @click="closeCheckoutForm"
+                class="hover:bg-blue-900 p-2 rounded-lg transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p class="text-sm text-blue-200 mt-2">
+              Mohon lengkapi data diri Anda untuk melanjutkan pembelian
+            </p>
+          </div>
+
+          <!-- Form Content -->
+          <div class="p-6 space-y-6">
+            <!-- Ringkasan Pesanan -->
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <h3 class="font-bold text-gray-900 mb-3">Ringkasan Pesanan</h3>
+              <div class="space-y-2 text-sm text-gray-700 mb-3">
+                <div
+                  v-for="(item, index) in cart"
+                  :key="index"
+                  class="flex justify-between"
+                >
+                  <span
+                    >{{ item.name }} ({{ item.size }}) x{{
+                      item.quantity
+                    }}</span
+                  >
+                  <span class="font-semibold">{{
+                    formatPrice(item.price * item.quantity)
+                  }}</span>
+                </div>
+              </div>
+              <div class="border-t pt-3 flex justify-between text-lg font-bold">
+                <span>Total:</span>
+                <span class="text-blue-950">{{ formatPrice(cartTotal) }}</span>
+              </div>
+            </div>
+
+            <!-- Form Data Diri -->
+            <form @submit.prevent="submitCheckout" class="space-y-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Nama Lengkap <span class="text-red-500">*</span>
+                </label>
+                <input
+                  v-model="customerData.nama"
+                  type="text"
+                  required
+                  placeholder="Masukkan nama lengkap"
+                  class="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Email <span class="text-red-500">*</span>
+                </label>
+                <input
+                  v-model="customerData.email"
+                  type="email"
+                  required
+                  placeholder="contoh@email.com"
+                  class="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Nomor Telepon <span class="text-red-500">*</span>
+                </label>
+                <input
+                  v-model="customerData.noTelepon"
+                  type="tel"
+                  required
+                  placeholder="08xxxxxxxxxx"
+                  class="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                  Alamat Lengkap <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  v-model="customerData.alamat"
+                  required
+                  rows="3"
+                  placeholder="Masukkan alamat lengkap untuk pengiriman"
+                  class="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Tombol Submit -->
+              <div class="flex gap-3 pt-4">
+                <button
+                  type="button"
+                  @click="closeCheckoutForm"
+                  class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-lg transition-all duration-300"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-blue-950 font-bold py-3 rounded-lg transition-all duration-300"
+                >
+                  Konfirmasi Pesanan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
     <!-- MAIN CONTENT -->
     <main class="bg-[#0d355d] py-12">
       <section class="w-screen left-1/2 right-1/2 -translate-x-1/2 relative">
@@ -684,12 +885,12 @@ const checkoutCart = () => {
               <label class="block text-gray-700 font-semibold mb-3"
                 >Pilih Ukuran:</label
               >
-              <div class="grid grid-cols-6 gap-3">
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
                 <button
                   v-for="size in sizes"
                   :key="size"
                   @click="selectedSize = size"
-                  class="px-4 py-3 border-2 rounded-lg font-semibold transition-all duration-300"
+                  class="px-2 sm:px-4 py-3 border-2 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
                   :class="
                     selectedSize === size
                       ? 'border-yellow-400 bg-yellow-400 text-blue-950'
