@@ -1,6 +1,6 @@
 <script setup>
-import logo from "../assets/logopersiba.png";
-import header from "../assets/stdbatakan.webp";
+import logo from "../assets/header/logopersiba.png";
+import header from "../assets/header/stdbatakan.webp";
 import { ref, computed } from "vue";
 import SocialFooter from "../components/SocialFooter.vue";
 

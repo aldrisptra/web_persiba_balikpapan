@@ -1,5 +1,5 @@
 <script setup>
-import logo from "../assets/logopersiba.png";
+import logo from "../assets/header/logopersiba.png";
 </script>
 
 <template>

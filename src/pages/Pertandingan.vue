@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import bgimage from "../assets/stdbatakan.webp";
+import bgimage from "../assets/header/stdbatakan.webp";
 import SocialFooter from "../components/SocialFooter.vue";
 import TextType from "../components/TextType.vue";
 
@@ -118,9 +118,9 @@ const matches = ref([
   {
     id: 9,
     opponent: "Persiku Kudus",
-    date: "2025-11-15",
-    displayDate: "15 November 2025",
-    time: "18:30",
+    date: "2025-12-15",
+    displayDate: "15 Desember 2025",
+    time: "17:29",
     location: "Stadion Batakan, Balikpapan",
     competition: "Liga 2",
     status: "upcoming",
@@ -206,7 +206,7 @@ const setActiveTab = (tab) => {
   activeTab.value = tab;
 };
 
-// Fungsi untuk navigasi ke halaman beli tiket dengan ID pertandingan
+// pindah ke halaman beli tiket
 const goToBeliTiket = (matchId) => {
   router.push({
     path: "/beliTiket",
@@ -214,7 +214,6 @@ const goToBeliTiket = (matchId) => {
   });
 };
 
-// Fungsi untuk mendapatkan warna status
 const getStatusColor = (status) => {
   switch (status) {
     case "upcoming":

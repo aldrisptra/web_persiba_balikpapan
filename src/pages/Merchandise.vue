@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed } from "vue";
 import SocialFooter from "../components/SocialFooter.vue";
-import logo from "../assets/logopersiba.png";
-import header from "../assets/stdbatakan.webp";
+import logo from "../assets/header/logopersiba.png";
+import header from "../assets/header/stdbatakan.webp";
 
 import Merchandise1 from "../assets/Merchandise/Merchandise1.png";
 import Merchandise2 from "../assets/Merchandise/Merchandise2.png";
@@ -29,7 +29,6 @@ const customerData = ref({
   alamat: "",
 });
 
-// Data merchandise (contoh - ganti dengan data asli)
 const products = ref([
   {
     id: 1,

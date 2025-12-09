@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import bgimage from "../assets/stdbatakan.webp";
+import bgimage from "../assets/header/stdbatakan.webp";
 import SocialFooter from "../components/SocialFooter.vue";
 import TextType from "../components/TextType.vue";
 

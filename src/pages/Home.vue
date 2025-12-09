@@ -1,6 +1,6 @@
 <script setup>
-import bgimage from "../assets/stdbatakan.webp";
-import logo from "../assets/logopersiba.png";
+import bgimage from "../assets/header/stdbatakan.webp";
+import logo from "../assets/header/logopersiba.png";
 import SocialFooter from "../components/SocialFooter.vue";
 import TextType from "../components/TextType.vue";
 

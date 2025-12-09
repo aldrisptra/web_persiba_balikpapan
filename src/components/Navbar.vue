@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import logo from "../assets/logopersiba.png";
+import logo from "../assets/header/logopersiba.png";
 
 const menuOpen = ref(false);
 

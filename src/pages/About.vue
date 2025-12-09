@@ -1,8 +1,8 @@
 <script setup>
-import logo from "../assets/logopersiba.png";
-import header from "../assets/stdbatakan.webp";
-import grid1 from "../assets/foto3.jpg";
-import grid2 from "../assets/stdbtkn.jpg";
+import logo from "../assets/header/logopersiba.png";
+import header from "../assets/header/stdbatakan.webp";
+import grid1 from "../assets/tentang/foto3.jpg";
+import grid2 from "../assets/tentang/stdbtkn.jpg";
 import SocialFooter from "../components/SocialFooter.vue";
 </script>
 
