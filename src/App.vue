@@ -16,6 +16,7 @@ const fullBleedRoutes = [
   "pertandingan",
   "merchandise",
   "belitiket",
+  "tentangMe",
 ];
 const mainClass = computed(() =>
   fullBleedRoutes.includes(route.name) ? "p-0" : "container mx-auto px-4 py-6"

@@ -85,6 +85,16 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
           </span>
         </RouterLink>
       </nav>
+      <RouterLink
+        :to="{ name: 'tentangMe' }"
+        class="relative inline-block py-2 group"
+      >
+        About
+        <span
+          class="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-0.5 w-full bg-yellow-300 origin-center scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+        >
+        </span>
+      </RouterLink>
 
       <!-- mobile actions: hamburger + optional CTA hidden on small inside mobile menu -->
       <div class="flex items-center gap-2">
@@ -213,6 +223,12 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
             :to="{ name: 'merchandise' }"
             class="block text-white py-2"
             >Merchandise</RouterLink
+          >
+          <RouterLink
+            @click="menuOpen = false"
+            :to="{ name: 'tentangMe' }"
+            class="block text-white py-2"
+            >AboutMe</RouterLink
           >
 
           <div class="pt-4">

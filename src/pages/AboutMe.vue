@@ -1,5 +1,5 @@
 <script setup>
-import logo from "../assets/header/logopersiba.png";
+import logo from "../assets/header/ppaldri.jpg";
 import header from "../assets/header/stdbatakan.webp";
 import grid1 from "../assets/tentang/foto3.jpg";
 import grid2 from "../assets/tentang/stdbtkn.jpg";
@@ -23,21 +23,19 @@ import SocialFooter from "../components/SocialFooter.vue";
         <div
           class="flex flex-col md:flex-row items-center gap-6 text-white py-6 md:py-0"
         >
-          <img
-            :src="logo"
-            alt="Persiba logo"
-            class="h-20 w-20 object-contain"
-          />
           <div>
             <h1 class="text-3xl md:text-4xl font-extrabold">
-              Tentang <span class="text-blue-400">Persiba Balikpapan</span>
+              Muhammad Aldri Saputra
             </h1>
             <p class="mt-2 text-white/90">
-              Tim kebanggaan
-              <span class="text-blue-400">Kota Balikpapan</span>.
+              11231050
+              <span class="text-blue-400"> Informatika</span>.
             </p>
           </div>
         </div>
+      </div>
+      <div class="relative container mx-auto px-4 md:px-6 lg:px-12">
+        <img :src="logo" alt="Persiba logo" class="h-50 w-50 object-contain" />
       </div>
     </section>
 
@@ -60,7 +58,29 @@ import SocialFooter from "../components/SocialFooter.vue";
               />
               <div class="p-6">
                 <h3 class="text-gray-800 text-xl font-semibold mb-2">
-                  Sejarah Singkat
+                  Tentang saya
+                </h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                  <strong>Persiba Balikpapan</strong> adalah klub sepak bola
+                  profesional asal
+                  <strong>Kota Balikpapan, Kalimantan Timur</strong>, yang
+                  berdiri sejak <strong>1950</strong>. Dikenal dengan julukan
+                  <strong>"Beruang Madu"</strong>, Persiba menjadi salah satu
+                  klub bersejarah dalam sepak bola Indonesia. Dengan warna
+                  kebesaran <strong>biru</strong>, Persiba hadir sebagai simbol
+                  semangat, sportivitas, dan kebanggaan masyarakat
+                  <strong>Kota Minyak</strong>. Perjalanan panjang di berbagai
+                  era kompetisi nasional menjadikan Persiba bagian penting dari
+                  identitas sepak bola Indonesia. Prestasi dan dedikasi Persiba
+                  telah mengukir namanya dalam sejarah sepak bola nasional. Tim
+                  yang bermarkas di Stadion Batakan ini terus berupaya
+                  memberikan yang terbaik untuk membanggakan para pendukung
+                  setia di seluruh Kalimantan Timur tepatnya di Balikpapan.
+                </p>
+              </div>
+              <div class="p-6">
+                <h3 class="text-gray-800 text-xl font-semibold mb-2">
+                  Sejarah Singkat saya
                 </h3>
                 <p class="text-sm text-gray-700 leading-relaxed">
                   <strong>Persiba Balikpapan</strong> adalah klub sepak bola
