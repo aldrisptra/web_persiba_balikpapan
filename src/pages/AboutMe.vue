@@ -31,6 +31,9 @@ import SocialFooter from "../components/SocialFooter.vue";
               11231050
               <span class="text-blue-400"> Informatika</span>.
             </p>
+            <p>
+              Saya adalah seorang mahasiswa di Institut Teknologi Kalimantan
+            </p>
           </div>
         </div>
       </div>
