@@ -3,7 +3,6 @@ import { createRouter, createWebHistory } from "vue-router";
 // Lazy-loaded pages (bisa juga import biasa)
 const Home = () => import("../pages/Home.vue");
 const Tentang = () => import("../pages/About.vue");
-const TentangMe = () => import("../pages/AboutMe.vue");
 const Squad = () => import("../pages/Squad.vue");
 const Pertandingan = () => import("../pages/Pertandingan.vue");
 const Merchandise = () => import("../pages/Merchandise.vue");
@@ -17,7 +16,6 @@ const router = createRouter({
     { path: "/squad", name: "squad", component: Squad },
     { path: "/pertandingan", name: "pertandingan", component: Pertandingan },
     { path: "/merchandise", name: "merchandise", component: Merchandise },
-    { path: "/tentangMe", name: "tentangMe", component: TentangMe },
     {
       path: "/belitiket",
       name: "belitiket",

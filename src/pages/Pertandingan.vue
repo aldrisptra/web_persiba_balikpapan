@@ -12,36 +12,23 @@ const matches = ref([
   // Pertandingan yang sudah lewat
   {
     id: 1,
-    opponent: "Persija Jakarta",
-    date: "2025-08-15",
-    displayDate: "15 Agustus 2025",
+    opponent: "PSS Sleman",
+    date: "2025-09-15",
+    displayDate: "15 September 2025",
     time: "19:00",
-    location: "Stadion Batakan, Balikpapan",
+    location: "Stadion Maguwoharjo, Sleman",
     competition: "Liga 2",
     status: "finished",
     score: "2-1",
-    persibaFirst: true,
-    ticketAvailable: false,
-  },
-  {
-    id: 2,
-    opponent: "Madura United",
-    date: "2025-08-22",
-    displayDate: "22 Agustus 2025",
-    time: "15:30",
-    location: "Stadion Gelora Ratu Pamelingan, Pamekasan",
-    competition: "Liga 2",
-    status: "finished",
-    score: "1-1",
     persibaFirst: false,
     ticketAvailable: false,
   },
   {
-    id: 3,
-    opponent: "Persebaya Surabaya",
-    date: "2025-09-05",
-    displayDate: "5 September 2025",
-    time: "18:30",
+    id: 2,
+    opponent: "Persipal FC",
+    date: "2025-09-21",
+    displayDate: "21 September 2025",
+    time: "19:00",
     location: "Stadion Batakan, Balikpapan",
     competition: "Liga 2",
     status: "finished",
@@ -50,73 +37,138 @@ const matches = ref([
     ticketAvailable: false,
   },
   {
-    id: 4,
-    opponent: "Arema FC",
-    date: "2025-09-19",
-    displayDate: "19 September 2025",
-    time: "19:00",
-    location: "Stadion Kanjuruhan, Malang",
+    id: 3,
+    opponent: "PSIS Semarang",
+    date: "2025-09-27",
+    displayDate: "27 September 2025",
+    time: "15:30",
+    location: "Stadion Jatidiri, Semarang",
     competition: "Liga 2",
     status: "finished",
-    score: "0-2",
+    score: "1-2",
+    persibaFirst: false,
+    ticketAvailable: false,
+  },
+  {
+    id: 4,
+    opponent: "Kendal Tornado FC",
+    date: "2025-10-06",
+    displayDate: "6 Oktober 2025",
+    time: "15:30",
+    location: "Stadion Jatidiri, Semarang",
+    competition: "Liga 2",
+    status: "finished",
+    score: "2-0",
     persibaFirst: false,
     ticketAvailable: false,
   },
   {
     id: 5,
-    opponent: "PSS Sleman",
-    date: "2025-10-03",
-    displayDate: "3 Oktober 2025",
-    time: "15:30",
+    opponent: "Persela Lamongan",
+    date: "2025-10-12",
+    displayDate: "12 Oktober 2025",
+    time: "19:00",
     location: "Stadion Batakan, Balikpapan",
     competition: "Liga 2",
     status: "finished",
-    score: "2-0",
+    score: "0-3",
     persibaFirst: true,
     ticketAvailable: false,
   },
   {
     id: 6,
-    opponent: "Bali United",
-    date: "2025-10-17",
-    displayDate: "17 Oktober 2025",
-    time: "18:30",
-    location: "Stadion Kapten I Wayan Dipta, Gianyar",
-    competition: "Liga 2",
-    status: "finished",
-    score: "1-3",
-    persibaFirst: false,
-    ticketAvailable: false,
-  },
-  {
-    id: 7,
-    opponent: "Borneo FC",
-    date: "2025-10-24",
-    displayDate: "24 Oktober 2025",
-    time: "19:00",
-    location: "Stadion Batakan, Balikpapan",
-    competition: "Liga 2",
-    status: "finished",
-    score: "2-2",
-    persibaFirst: true,
-    ticketAvailable: false,
-  },
-  {
-    id: 8,
-    opponent: "Persis Solo",
-    date: "2025-11-07",
-    displayDate: "7 November 2025",
-    time: "15:30",
-    location: "Stadion Manahan, Solo",
+    opponent: "Persipura Jayapura",
+    date: "2025-10-19",
+    displayDate: "19 Oktober 2025",
+    time: "13:30",
+    location: "(Tandang)",
     competition: "Liga 2",
     status: "finished",
     score: "1-0",
     persibaFirst: false,
     ticketAvailable: false,
   },
-
+  {
+    id: 7,
+    opponent: "Persiku Kudus",
+    date: "2025-10-26",
+    displayDate: "26 Oktober 2025",
+    time: "19:00",
+    location: "Stadion Batakan, Balikpapan",
+    competition: "Liga 2",
+    status: "finished",
+    score: "3-0",
+    persibaFirst: true,
+    ticketAvailable: false,
+  },
+  {
+    id: 8,
+    opponent: "Barito Putera",
+    date: "2025-11-02",
+    displayDate: "2 November 2025",
+    time: "19:00",
+    location: "(Tandang)",
+    competition: "Liga 2",
+    status: "finished",
+    score: "3-0",
+    persibaFirst: false,
+    ticketAvailable: false,
+  },
   {
     id: 9,
+    opponent: "Deltras FC",
+    date: "2025-11-07",
+    displayDate: "7 November 2025",
+    time: "15:30",
+    location: "(Tandang)",
+    competition: "Liga 2",
+    status: "finished",
+    score: "1-1",
+    persibaFirst: false,
+    ticketAvailable: false,
+  },
+  {
+    id: 10,
+    opponent: "PSS Sleman",
+    date: "2025-11-12",
+    displayDate: "12 November 2025",
+    time: "19:00",
+    location: "Stadion Batakan, Balikpapan",
+    competition: "Liga 2",
+    status: "finished",
+    score: "1-2",
+    persibaFirst: true,
+    ticketAvailable: false,
+  },
+  {
+    id: 11,
+    opponent: "Persipal FC",
+    date: "2025-11-17",
+    displayDate: "17 November 2025",
+    time: "14:30",
+    location: "Stadion Gawalise, Palu",
+    competition: "Liga 2",
+    status: "finished",
+    score: "1-1",
+    persibaFirst: false,
+    ticketAvailable: false,
+  },
+  {
+    id: 12,
+    opponent: "PSIS Semarang",
+    date: "2025-11-23",
+    displayDate: "23 November 2025",
+    time: "19:00",
+    location: "Stadion Batakan, Balikpapan",
+    competition: "Liga 2",
+    status: "finished",
+    score: "0-1",
+    persibaFirst: true,
+    ticketAvailable: false,
+  },
+
+  {
+    id: 13,
     opponent: "Persiku Kudus",
     date: "2025-12-15",
     displayDate: "15 Desember 2025",
@@ -128,7 +180,7 @@ const matches = ref([
     ticketAvailable: true,
   },
   {
-    id: 10,
+    id: 14,
     opponent: "PSIS Semarang",
     date: "2025-11-22",
     displayDate: "22 November 2025",
@@ -140,7 +192,7 @@ const matches = ref([
     ticketAvailable: true,
   },
   {
-    id: 11,
+    id: 15,
     opponent: "Barito Putera",
     date: "2025-11-29",
     displayDate: "29 November 2025",
@@ -153,7 +205,7 @@ const matches = ref([
   },
   // Pertandingan mendatang lainnya
   {
-    id: 12,
+    id: 16,
     opponent: "Persita Tangerang",
     date: "2025-12-06",
     displayDate: "6 Desember 2025",
@@ -165,7 +217,7 @@ const matches = ref([
     ticketAvailable: false,
   },
   {
-    id: 13,
+    id: 17,
     opponent: "Dewa United",
     date: "2025-12-13",
     displayDate: "13 Desember 2025",
@@ -177,7 +229,7 @@ const matches = ref([
     ticketAvailable: false,
   },
   {
-    id: 14,
+    id: 18,
     opponent: "Persik Kediri",
     date: "2025-12-20",
     displayDate: "20 Desember 2025",
@@ -349,7 +401,7 @@ const getStatusText = (status) => {
                   <div class="grid grid-cols-3 gap-4 items-center mb-4">
                     <!-- Tim Kiri -->
                     <div v-if="match.persibaFirst" class="text-right">
-                      <p class="text-base md:text-lg font-bold text-gray-900">
+                      <p class="text-base md:text-lg font-bold text-blue-950">
                         Persiba Balikpapan
                       </p>
                     </div>
@@ -373,7 +425,7 @@ const getStatusText = (status) => {
                       </p>
                     </div>
                     <div v-else class="text-left">
-                      <p class="text-base md:text-lg font-bold text-gray-900">
+                      <p class="text-base md:text-lg font-bold text-blue-950">
                         Persiba Balikpapan
                       </p>
                     </div>
@@ -436,7 +488,7 @@ const getStatusText = (status) => {
               <div class="grid grid-cols-5 gap-4 items-center mb-4">
                 <!-- Tim Kiri -->
                 <div v-if="match.persibaFirst" class="col-span-2 text-right">
-                  <p class="text-lg font-bold text-gray-900">
+                  <p class="text-lg font-bold text-blue-950">
                     Persiba Balikpapan
                   </p>
                 </div>
@@ -460,7 +512,7 @@ const getStatusText = (status) => {
                   </p>
                 </div>
                 <div v-else class="col-span-2 text-left">
-                  <p class="text-lg font-bold text-gray-900">
+                  <p class="text-lg font-bold text-blue-950">
                     Persiba Balikpapan
                   </p>
                 </div>
@@ -550,114 +602,142 @@ const getStatusText = (status) => {
                   <tr class="border-b hover:bg-gray-50">
                     <td class="px-4 py-3 text-center font-semibold">1</td>
                     <td class="px-4 py-3 font-semibold text-gray-900">
-                      Bali United
+                      PS. Barito Putera
+                    </td>
+                    <td class="px-4 py-3 text-center">12</td>
+                    <td class="px-4 py-3 text-center">9</td>
+                    <td class="px-4 py-3 text-center">1</td>
+                    <td class="px-4 py-3 text-center">2</td>
+                    <td class="px-4 py-3 text-center">20</td>
+                    <td class="px-4 py-3 text-center">4</td>
+                    <td class="px-4 py-3 text-center">+16</td>
+                    <td class="px-4 py-3 text-center font-bold">28</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="px-4 py-3 text-center font-semibold">2</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">
+                      PSS Seleman
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">8</td>
                     <td class="px-4 py-3 text-center">3</td>
                     <td class="px-4 py-3 text-center">1</td>
                     <td class="px-4 py-3 text-center">24</td>
-                    <td class="px-4 py-3 text-center">10</td>
-                    <td class="px-4 py-3 text-center">+14</td>
-                    <td class="px-4 py-3 text-center font-bold">27</td>
-                  </tr>
-                  <tr class="border-b hover:bg-gray-50">
-                    <td class="px-4 py-3 text-center font-semibold">2</td>
-                    <td class="px-4 py-3 font-semibold text-gray-900">
-                      Persija Jakarta
-                    </td>
-                    <td class="px-4 py-3 text-center">12</td>
-                    <td class="px-4 py-3 text-center">7</td>
-                    <td class="px-4 py-3 text-center">4</td>
-                    <td class="px-4 py-3 text-center">1</td>
-                    <td class="px-4 py-3 text-center">21</td>
                     <td class="px-4 py-3 text-center">9</td>
-                    <td class="px-4 py-3 text-center">+12</td>
-                    <td class="px-4 py-3 text-center font-bold">25</td>
+                    <td class="px-4 py-3 text-center">+15</td>
+                    <td class="px-4 py-3 text-center font-bold">27</td>
                   </tr>
                   <tr class="border-b hover:bg-gray-50">
                     <td class="px-4 py-3 text-center font-semibold">3</td>
                     <td class="px-4 py-3 font-semibold text-gray-900">
-                      Borneo FC
+                      Persipura Jayapura
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">7</td>
-                    <td class="px-4 py-3 text-center">3</td>
                     <td class="px-4 py-3 text-center">2</td>
-                    <td class="px-4 py-3 text-center">19</td>
-                    <td class="px-4 py-3 text-center">11</td>
-                    <td class="px-4 py-3 text-center">+8</td>
-                    <td class="px-4 py-3 text-center font-bold">24</td>
+                    <td class="px-4 py-3 text-center">3</td>
+                    <td class="px-4 py-3 text-center">16</td>
+                    <td class="px-4 py-3 text-center">7</td>
+                    <td class="px-4 py-3 text-center">+9</td>
+                    <td class="px-4 py-3 text-center font-bold">23</td>
                   </tr>
-                  <tr class="border-b hover:bg-gray-50 bg-blue-50">
+                  <tr class="border-b hover:bg-gray-50">
                     <td class="px-4 py-3 text-center font-semibold">4</td>
-                    <td class="px-4 py-3 font-bold text-blue-900">
-                      Persiba Balikpapan
+                    <td class="px-4 py-3 font-semibold text-gray-900">
+                      Persela Lamongan
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">6</td>
-                    <td class="px-4 py-3 text-center">4</td>
-                    <td class="px-4 py-3 text-center">2</td>
-                    <td class="px-4 py-3 text-center">18</td>
-                    <td class="px-4 py-3 text-center">12</td>
+                    <td class="px-4 py-3 text-center">3</td>
+                    <td class="px-4 py-3 text-center">3</td>
+                    <td class="px-4 py-3 text-center">16</td>
+                    <td class="px-4 py-3 text-center">10</td>
                     <td class="px-4 py-3 text-center">+6</td>
-                    <td class="px-4 py-3 text-center font-bold">22</td>
+                    <td class="px-4 py-3 text-center font-bold">21</td>
                   </tr>
                   <tr class="border-b hover:bg-gray-50">
                     <td class="px-4 py-3 text-center font-semibold">5</td>
                     <td class="px-4 py-3 font-semibold text-gray-900">
-                      PSIS Semarang
+                      Kendal Tornado FC
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">6</td>
-                    <td class="px-4 py-3 text-center">3</td>
-                    <td class="px-4 py-3 text-center">3</td>
-                    <td class="px-4 py-3 text-center">17</td>
-                    <td class="px-4 py-3 text-center">13</td>
-                    <td class="px-4 py-3 text-center">+4</td>
-                    <td class="px-4 py-3 text-center font-bold">21</td>
-                  </tr>
-                  <tr class="border-b hover:bg-gray-50">
-                    <td class="px-4 py-3 text-center font-semibold">6</td>
-                    <td class="px-4 py-3 font-semibold text-gray-900">
-                      Arema FC
-                    </td>
-                    <td class="px-4 py-3 text-center">12</td>
-                    <td class="px-4 py-3 text-center">5</td>
-                    <td class="px-4 py-3 text-center">5</td>
                     <td class="px-4 py-3 text-center">2</td>
-                    <td class="px-4 py-3 text-center">16</td>
-                    <td class="px-4 py-3 text-center">11</td>
+                    <td class="px-4 py-3 text-center">4</td>
+                    <td class="px-4 py-3 text-center">17</td>
+                    <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">+5</td>
                     <td class="px-4 py-3 text-center font-bold">20</td>
                   </tr>
                   <tr class="border-b hover:bg-gray-50">
-                    <td class="px-4 py-3 text-center font-semibold">7</td>
+                    <td class="px-4 py-3 text-center font-semibold">6</td>
                     <td class="px-4 py-3 font-semibold text-gray-900">
-                      Persebaya Surabaya
+                      Deltras FC
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
                     <td class="px-4 py-3 text-center">5</td>
-                    <td class="px-4 py-3 text-center">4</td>
                     <td class="px-4 py-3 text-center">3</td>
-                    <td class="px-4 py-3 text-center">15</td>
-                    <td class="px-4 py-3 text-center">13</td>
-                    <td class="px-4 py-3 text-center">+2</td>
-                    <td class="px-4 py-3 text-center font-bold">19</td>
+                    <td class="px-4 py-3 text-center">4</td>
+                    <td class="px-4 py-3 text-center">14</td>
+                    <td class="px-4 py-3 text-center">10</td>
+                    <td class="px-4 py-3 text-center">+4</td>
+                    <td class="px-4 py-3 text-center font-bold">18</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50 bg-blue-200">
+                    <td class="px-4 py-3 text-center font-semibold">7</td>
+                    <td class="px-4 py-3 font-bold text-blue-900">
+                      Persiba Balikpapan
+                    </td>
+                    <td class="px-4 py-3 text-center">12</td>
+                    <td class="px-4 py-3 text-center">3</td>
+                    <td class="px-4 py-3 text-center">2</td>
+                    <td class="px-4 py-3 text-center">7</td>
+                    <td class="px-4 py-3 text-center">12</td>
+                    <td class="px-4 py-3 text-center">19</td>
+                    <td class="px-4 py-3 text-center">-7</td>
+                    <td class="px-4 py-3 text-center font-bold">11</td>
                   </tr>
                   <tr class="border-b hover:bg-gray-50">
                     <td class="px-4 py-3 text-center font-semibold">8</td>
                     <td class="px-4 py-3 font-semibold text-gray-900">
-                      Madura United
+                      Persiku Kudus
                     </td>
                     <td class="px-4 py-3 text-center">12</td>
-                    <td class="px-4 py-3 text-center">4</td>
-                    <td class="px-4 py-3 text-center">6</td>
                     <td class="px-4 py-3 text-center">2</td>
+                    <td class="px-4 py-3 text-center">2</td>
+                    <td class="px-4 py-3 text-center">8</td>
                     <td class="px-4 py-3 text-center">14</td>
+                    <td class="px-4 py-3 text-center">21</td>
+                    <td class="px-4 py-3 text-center">-7</td>
+                    <td class="px-4 py-3 text-center font-bold">8</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="px-4 py-3 text-center font-semibold">8</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">
+                      Persipal FC
+                    </td>
                     <td class="px-4 py-3 text-center">12</td>
-                    <td class="px-4 py-3 text-center">+2</td>
-                    <td class="px-4 py-3 text-center font-bold">18</td>
+                    <td class="px-4 py-3 text-center">0</td>
+                    <td class="px-4 py-3 text-center">6</td>
+                    <td class="px-4 py-3 text-center">6</td>
+                    <td class="px-4 py-3 text-center">7</td>
+                    <td class="px-4 py-3 text-center">24</td>
+                    <td class="px-4 py-3 text-center">-17</td>
+                    <td class="px-4 py-3 text-center font-bold">6</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="px-4 py-3 text-center font-semibold">8</td>
+                    <td class="px-4 py-3 font-semibold text-gray-900">
+                      PSIS Semarang
+                    </td>
+                    <td class="px-4 py-3 text-center">12</td>
+                    <td class="px-4 py-3 text-center">1</td>
+                    <td class="px-4 py-3 text-center">2</td>
+                    <td class="px-4 py-3 text-center">9</td>
+                    <td class="px-4 py-3 text-center">5</td>
+                    <td class="px-4 py-3 text-center">29</td>
+                    <td class="px-4 py-3 text-center">-24</td>
+                    <td class="px-4 py-3 text-center font-bold">5</td>
                   </tr>
                 </tbody>
               </table>

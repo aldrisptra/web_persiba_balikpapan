@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import bgimage from "../assets/header/stdbatakan.webp";
 import logo from "../assets/header/logopersiba.png";
 import SocialFooter from "../components/SocialFooter.vue";
@@ -35,6 +36,30 @@ const videos = [
     thumb: videoThumb3,
   },
 ];
+
+// State untuk modal video
+const showModal = ref(false);
+const selectedVideo = ref(null);
+
+// Function untuk extract YouTube video ID
+const getYoutubeVideoId = (url) => {
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+// Function untuk buka modal
+const openVideoModal = (video) => {
+  selectedVideo.value = video;
+  showModal.value = true;
+};
+
+// Function untuk tutup modal
+const closeVideoModal = () => {
+  showModal.value = false;
+  selectedVideo.value = null;
+};
 
 const news = [
   {
@@ -132,13 +157,11 @@ const thumbs = [news1, news2, news3];
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <a
+          <div
             v-for="(v, i) in videos"
             :key="i"
-            :href="v.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block bg-white rounded-xl overflow-hidden transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
+            @click="openVideoModal(v)"
+            class="cursor-pointer block bg-white rounded-xl overflow-hidden transform transition-transform duration-200 hover:scale-105 hover:shadow-lg"
           >
             <div class="relative">
               <img
@@ -167,10 +190,69 @@ const thumbs = [news1, news2, news3];
               <p class="text-xs text-gray-400">{{ v.date }}</p>
               <span class="text-blue-600 text-sm">Tonton selengkapnya →</span>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal Video -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div
+          v-if="showModal"
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+          @click="closeVideoModal"
+        >
+          <div
+            class="relative w-full max-w-4xl bg-white rounded-xl overflow-hidden shadow-2xl"
+            @click.stop
+          >
+            <!-- Tombol Close -->
+            <button
+              @click="closeVideoModal"
+              class="absolute top-2 right-2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <!-- Video Embed -->
+            <div class="relative" style="padding-bottom: 56.25%; height: 0">
+              <iframe
+                v-if="selectedVideo"
+                :src="`https://www.youtube.com/embed/${getYoutubeVideoId(
+                  selectedVideo.url
+                )}?autoplay=1`"
+                class="absolute top-0 left-0 w-full h-full"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- Info Video -->
+            <div class="p-4 bg-gray-50">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">
+                {{ selectedVideo?.title }}
+              </h3>
+              <p class="text-sm text-gray-500">{{ selectedVideo?.date }}</p>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
 
     <!-- 4) BERITA TERKINI -->
     <section class="bg-[#0d355d] py-12">
@@ -211,3 +293,26 @@ const thumbs = [news1, news2, news3];
     <SocialFooter />
   </div>
 </template>
+
+<style scoped>
+/* Animasi untuk modal */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active .relative,
+.modal-leave-active .relative {
+  transition: transform 0.3s ease;
+}
+
+.modal-enter-from .relative,
+.modal-leave-to .relative {
+  transform: scale(0.9);
+}
+</style>
