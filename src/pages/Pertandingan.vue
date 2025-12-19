@@ -206,7 +206,7 @@ const matches = ref([
   // Pertandingan mendatang lainnya
   {
     id: 16,
-    opponent: "Persita Tangerang",
+    opponent: "Persela Lamongan",
     date: "2025-12-06",
     displayDate: "6 Desember 2025",
     time: "19:00",
