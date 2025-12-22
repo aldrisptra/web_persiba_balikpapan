@@ -56,7 +56,7 @@ import SocialFooter from "../components/SocialFooter.vue";
               <img
                 :src="grid1"
                 alt="Sejarah Persiba"
-                class="w-full md:w-1/3 h-56 object-cover"
+                class="w-full md:w-1/3 h-100 sm:h-100 object-cover"
               />
               <div class="p-6">
                 <h3 class="text-gray-800 text-xl font-semibold mb-2">
@@ -99,7 +99,7 @@ import SocialFooter from "../components/SocialFooter.vue";
               <img
                 :src="grid2"
                 alt="Stadion Batakan"
-                class="w-full md:w-1/3 h-56 object-cover"
+                class="w-full md:w-1/3 h-100 sm:h-80 object-cover"
               />
               <div class="p-6">
                 <h3 class="text-gray-800 text-xl font-semibold mb-2">

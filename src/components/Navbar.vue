@@ -17,7 +17,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKeydown));
 </script>
 
 <template>
-  <header class="bg-[#0d355d] border-b">
+  <header class="sticky top-0 z-50 bg-[#0d355d] border-b shadow-md">
     <div
       class="container mx-auto px-4 md:px-6 lg:px-12 h-16 flex items-center justify-between"
     >

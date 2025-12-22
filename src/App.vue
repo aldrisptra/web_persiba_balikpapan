@@ -22,7 +22,7 @@ const mainClass = computed(() =>
 );
 </script>
 <template>
-  <div class="min-h-screen bg-white text-white overflow-x-hidden">
+  <div class="min-h-screen bg-white text-white">
     <NavBar />
     <!-- ini tempat halaman muncul; container hanya aktif untuk non-home routes -->
     <main :class="mainClass">
